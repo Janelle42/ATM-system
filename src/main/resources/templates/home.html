@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ATM System - Login</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div class="atm-container">
+
+    <div class="logo">
+        <h1>ATM SYSTEM</h1>
+        <p>Secure Banking Portal</p>
+    </div>
+
+    <form action="/login" method="post">
+
+        <div class="form-group">
+            <label for="accountNumber">Account Number</label>
+            <input
+                    type="text"
+                    id="accountNumber"
+                    name="accountNumber"
+                    placeholder="Enter account number"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="pin">PIN</label>
+            <input
+                    type="password"
+                    id="pin"
+                    name="pin"
+                    placeholder="Enter your PIN"
+                    maxlength="4"
+            >
+        </div>
+
+        <button type="submit" class="login-button">
+            Login
+        </button>
+
+    </form>
+
+    <div class="demo-info">
+        Demo ATM System — No real banking information required.
+    </div>
+
+</div>
+
+</body>
+</html>

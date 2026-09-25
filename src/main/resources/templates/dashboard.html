@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ATM System - Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <div class="dashboard-header">
+
+        <div>
+            <h1>ATM SYSTEM</h1>
+        </div>
+
+        <a href="/" class="logout-button">Logout</a>
+
+    </div>
+
+
+    <div class="balance-card">
+
+        <p>AVAILABLE BALANCE</p>
+
+        <h2>
+            R<span th:text="${#numbers.formatDecimal(account.balance, 1, 2)}"></span>
+        </h2>
+
+        <span>
+            Account: ****<span th:text="${account.accountNumber.substring(5)}"></span>
+        </span>
+
+    </div>
+
+
+    <div class="dashboard-content">
+
+        <h2>What would you like to do?</h2>
+
+        <div class="action-grid">
+
+
+            <a href="/withdraw" class="action-card">
+
+                <div class="action-icon">
+                    <i class="fa-solid fa-money-bill-transfer"></i>
+                </div>
+
+                <h3>Withdraw</h3>
+
+                <p>Take money from your account</p>
+
+            </a>
+
+
+            <a href="/deposit" class="action-card">
+
+                <div class="action-icon">
+                    <i class="fa-solid fa-money-bill-trend-up"></i>
+                </div>
+
+                <h3>Deposit</h3>
+
+                <p>Add money to your account</p>
+
+            </a>
+
+
+            <a href="/transfer" class="action-card">
+
+                <div class="action-icon">
+                    <i class="fa-solid fa-right-left"></i>
+                </div>
+
+                <h3>Transfer</h3>
+
+                <p>Transfer money to another account</p>
+
+            </a>
+
+
+            <a href="/transactions" class="action-card">
+                <div class="action-icon">
+                    <i class="fa-solid fa-receipt"></i>
+                </div>
+
+                <h3>Transactions</h3>
+
+                <p>View your transaction history</p>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-footer">
+
+        <p>Demo ATM System • No real banking information</p>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ATM System - Transactions</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <div class="dashboard-header">
+
+        <div>
+            <h1>TRANSACTIONS</h1>
+            <p>Transaction history</p>
+        </div>
+
+        <a href="/dashboard" class="logout-button">Back</a>
+
+    </div>
+
+
+    <div class="balance-card">
+
+        <p>AVAILABLE BALANCE</p>
+
+        <h2>
+            R<span th:text="${#numbers.formatDecimal(account.balance, 1, 2)}"></span>
+        </h2>
+
+        <span>
+            Account: ****<span th:text="${account.accountNumber.substring(5)}"></span>
+        </span>
+
+    </div>
+
+
+    <div class="dashboard-content">
+
+        <h2>Transaction History</h2>
+
+        <div th:if="${transactions.isEmpty()}">
+
+            <p>No transactions yet.</p>
+
+        </div>
+
+
+        <div class="transaction-table-container" th:if="${!transactions.isEmpty()}">
+
+            <table class="transaction-table">
+
+                <thead>
+
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Balance</th>
+                </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                <tr th:each="transaction : ${transactions}">
+
+                    <td th:text="${#temporals.format(transaction.dateTime, 'dd MMM yyyy HH:mm')}"></td>
+
+                    <td>
+                        <span class="transaction-type" th:text="${transaction.type}"></span>
+                    </td>
+
+                    <td>
+                        R<span th:text="${#numbers.formatDecimal(transaction.amount, 1, 2)}"></span>
+                    </td>
+
+                    <td>
+                        R<span th:text="${#numbers.formatDecimal(transaction.balance, 1, 2)}"></span>
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-footer">
+
+        <p>Demo ATM System • No real banking information</p>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
